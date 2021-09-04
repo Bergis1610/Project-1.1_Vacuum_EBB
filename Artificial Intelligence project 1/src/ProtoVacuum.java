@@ -223,14 +223,6 @@ public class ProtoVacuum {
 
         // This calls upon the gridRandomizer() randomizes all values within the boolean matrix
         // to either be dirty or clean
-        /*
-        for(int i = 0;i<4;i++){
-            for(int j = 0; j<4;j++){
-                table[i][j] = p.dirtyfier();
-            }
-        }
-
-         */
         p.gridRandomizer(table);
 
         // This method calls upon the vacuumRandomizer to randomly assign a location to the vacuumer
@@ -248,155 +240,10 @@ public class ProtoVacuum {
         // grid is printed again.
         for(int i = 0; i < 25; i++) {
             p.perceptAndAct(table, v);
-            /*
-            p.print("----------------------------------------------------------------------");
-            p.gridPrinter(table, v.indexLocX, v.indexLocY);
-            p.println("----------------------------------------------------------------------");
-
-             */
-            //p.println("");
-            //p.print("----------------------------------------------------------------------");
-            /*
-            if (table[v.indexLocX][v.indexLocY]) {
-                table[v.indexLocX][v.indexLocY] = false;
-                p.println("\n\t** Cleaned square **");
-            } else {
-                p.println("\n\t** Square was already clean **");
-            }
-             */
             p.move(v);
         }
 
     }
-
-    //Below is a prot-class for a square, however I discarded this idea in favour
-    //of another implementation that was more efficient with less code.
-    /*public static class square{
-        boolean isDirty = true;
-        boolean occupied = false;
-
-    }
-     */
-
-    //The methods below were used for testing purposes and are not a part of the program
-    /*
-    public void printArray(square[][] m){
-        for(int i = 0;i<4;i++){
-            println("");
-            for(int j = 0; j<4;j++){
-                print(m[i][j].isDirty +"\t");
-            }
-        }
-    }
-    public void gridPrinter(square[][]m, int x, int y){
-        for(int i = 0;i<4;i++){
-            println("");
-            for(int j = 0; j<4;j++){
-                if(i == x && j == y ) {
-                    print("[");
-                    eZprintDirt(m[i][j].isDirty);
-                    print("]");
-                }else
-                    eZprintDirt(m[i][j].isDirty);
-                print("\t");
-            }
-        }
-    }
-    public boolean move(vacuumer v, square[][] board){
-        done = false;
-        temp = rand.nextInt(4);
-        board[v.indexLocX][v.indexLocY].occupied = false;
-        while(!done) {
-            if (temp == 0) {
-                //down x++
-                if(!isLegal(v.indexLocX+1,v.indexLocY) || temp == v.oppositeMove){
-                    temp = 2;
-                } else {
-                    v.indexLocX++;
-                    v.oppositeMove = 1;
-                    done = true;
-                }
-
-            } else if (temp == 1) {
-                //up x--
-                if(!isLegal(v.indexLocX-1,v.indexLocY) || temp == v.oppositeMove){
-                    temp = 3;
-                } else {
-                    v.indexLocX--;
-                    v.oppositeMove = 0;
-                    done = true;
-                }
-
-            } else if (temp == 2) {
-                //right y++
-                if(!isLegal(v.indexLocX,v.indexLocY+1) || temp == v.oppositeMove){
-                    temp = 1;
-                } else {
-                    v.indexLocY++;
-                    v.oppositeMove = 3;
-                    done = true;
-                }
-
-            } else if (temp == 3) {
-                //left y--
-                if(!isLegal(v.indexLocX,v.indexLocY-1)|| temp == v.oppositeMove){
-                    temp = 0;
-                } else {
-                    v.indexLocY--;
-                    v.oppositeMove = 2;
-                    done = true;
-                }
-            }
-        }//while loop
-        board[v.indexLocX][v.indexLocY].occupied = true;
-        return true;
-    }
-    */
-
-    //Square matrix used for testing purposes.
-    //  *   Supposed to be inside the main method  *  //
-    /*
-        square[][] board = new square[4][4];
-        square s1 = new square();
-        board[0][0] = s1;
-        p.print(board[0][0].isDirty);
-
-        for(int i = 0;i<4;i++){
-            for(int j = 0; j<4;j++){
-                square temp = new square();
-                board[i][j] = temp;
-            }
-        }
-        p.gridPrinter(board,2,1);
-        p.println("\n\n");
-        for(int i = 0;i<4;i++){
-            for(int j = 0; j<4;j++){
-                board[i][j].isDirty = p.dirtyfier();
-            }
-        }
-        p.gridPrinter(board,2,1);
-        p.println("\n\n");
-            */
-
-    //dirtyfier tests
-    //  *   Supposed to be inside the main method  *  //
-        /*
-        for(int i = 0;i<10;i++){
-            p.println(p.dirtyfier());
-        }
-
-         */
-
-        /*
-        for(int i = 0;i<10;i++){
-            p.prln(p.rand.nextInt(2));
-        }
-        */
-
-
-
-
-
 
 }
 
