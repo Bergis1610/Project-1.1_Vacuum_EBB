@@ -121,29 +121,16 @@ public class ProtoVacuum {
         if (b[vac.indexLocX][vac.indexLocY]) {
             println("The square is dirty");
             println("Action: Clean then move");
-
             gridPrinter(b, vac.indexLocX, vac.indexLocY);
             println("----------------------------------------------------------------------");
             b[vac.indexLocX][vac.indexLocY] = false;
-            //println("\n\t** Cleaned square **");
         } else {
             println("The square is clean");
             println("Action: Move");
-            //print("----------------------------------------------------------------------");
             gridPrinter(b, vac.indexLocX, vac.indexLocY);
             println("----------------------------------------------------------------------");
-            //println("\n\t** Square was already clean **");
         }
-        //move(vac);
-        /*
-        print("Current location: ");
-        println("(" + vac.indexLocX + "," + vac.indexLocY + ")")
-        print("Percept: ");
-        println("The square is dirty");
-        println("The square is clean");
-        println("Action: Clean then move");
-        println("Action: Move");
-         */
+        
     }
 
     //boolean used for the while-loop
@@ -242,8 +229,7 @@ public class ProtoVacuum {
             p.perceptAndAct(table, v);
             p.move(v);
         }
-
-    }
-
+    }    
 }
+
 
